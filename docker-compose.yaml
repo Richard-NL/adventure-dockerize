@@ -1,0 +1,15 @@
+version: '2'
+services:
+  django-scenes:
+    build: ./django-scenes/.
+    volumes:
+      - ./django-scenes/:/code
+    ports:
+      - "8000:8000"
+  silex-adventure:
+    build: ./silex-adventure/.
+    links:
+      - django-scenes
+    ports:
+      - "2222:22"
+
